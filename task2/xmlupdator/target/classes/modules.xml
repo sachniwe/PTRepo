@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>release.package</groupId>
+    <artifactId>base</artifactId>
+    <version>3.5-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <build.version>3.5</build.version>
+        <next.build.version>3.6</next.build.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>build.plugins.plugin</groupId>
+                <artifactId>packer</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <id>create-pack</id>
+                        <goals>
+                            <goal>create-pack</goal>
+                        </goals>
+                        <phase>package</phase>
+                        <configuration>
+                            <output>${project.build.directory}/${project.build.finalName}.zip</output>
+                            <pages>
+                                <page>
+                                    <id>config</id>
+                                </page>
+                                <page>
+                                    <id>platform</id>
+                                </page>
+                            </pages>
+
+                            <modules>
+                                <platform>
+                                    <page>platform</page>
+                                    <name>New</name>
+                                    <artifacts>
+                                        <artifact>config.terminal.platform:new:zip:[${build.version},${next.build.version})</artifact>
+                                    </artifacts>
+                                </platform>
+                                
+                                <config>
+                                    <page>config</page>
+                                    <name>Developers</name>
+                                    <artifacts>
+                                        <artifact>config.terminal.customer:dev:zip:[${build.version},${next.build.version})</artifact>
+                                    </artifacts>
+                                </config>
+                            </modules>
+
+                            <install>
+                                <command>package</command>
+                            </install>
+                            <info>
+                                <name>Terminal</name>
+                                <help/>
+                            </info>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

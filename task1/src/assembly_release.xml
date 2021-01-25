@@ -1,0 +1,44 @@
+<assembly>
+<id>release</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+	<fileSet>
+			<directory>./config/</directory>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<outputDirectory>./config</outputDirectory>
+			<includes>
+				<include>*.ini</include>
+				<include>*.inc</include>
+				<include>*.inf</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>./</directory>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<outputDirectory>./config</outputDirectory>
+			<includes>
+				<include>*.ini</include>
+				<include>*.inc</include>
+				<include>*.inf</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>./debug/</directory>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<outputDirectory>./product</outputDirectory>
+			<includes>
+				<include>*.dll</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+	<files>
+		<file>
+		  <source>./bin/doit.exe</source>
+		  <outputDirectory>/</outputDirectory>
+		  <destName>launcher.exe</destName>
+		</file>
+	</files>
+</assembly>

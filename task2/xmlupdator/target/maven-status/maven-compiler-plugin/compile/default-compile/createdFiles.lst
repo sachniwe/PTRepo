@@ -1,0 +1,3 @@
+se\playtech\updater\impl\XMLUpdaterImpl.class
+se\playtech\updater\executor\XMLUpdaterMojo.class
+se\playtech\updater\util\XMLUpdater.class
